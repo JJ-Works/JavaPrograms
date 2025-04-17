@@ -5,6 +5,8 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.Scanner;
 
 public class _31_assignmentCreatingSignupPage {
     public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class _31_assignmentCreatingSignupPage {
         Border border = BorderFactory.createLineBorder(Color.black, 3, true);
         JPanel cardPanel = new JPanel();
         cardPanel.setBackground(new Color(220,240,240));
-        cardPanel.setBounds(100, 50, 550, 700);
+        cardPanel.setBounds(100, 50, 550, 800);
         cardPanel.setBorder(border);
 
 
@@ -233,6 +235,88 @@ public class _31_assignmentCreatingSignupPage {
         cardPanel.add(labelOthers);
 
 
+        JTextArea textArea11 = new JTextArea();
+        textArea11.setBounds(20,480,500,200);
+//        textArea11.setBackground(Color.black);
+        cardPanel.add(textArea11);
+
+
+        //---------For Menu Bar------------------------//
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu home =  new JMenu("Home");
+        JMenu file =  new JMenu("File");
+        JMenu help =  new JMenu("Help");
+        JMenu review =  new JMenu("Review");
+
+
+
+        JMenuItem open_File = new JMenuItem("Open");
+        JMenuItem new_File = new JMenuItem("New");
+        JMenuItem save_File = new JMenuItem("Save");
+        JMenuItem exit_File = new JMenuItem("Exit");
+
+
+
+        file.add(open_File);
+        file.add(new_File); //==> text area ma naya instance create frame.add(new text area)
+        file.add(save_File);
+        file.add(exit_File); // ==> exit garna actionlistener rakhney ani system.exit(0) rakhney
+
+
+        StringBuilder content = new StringBuilder();
+
+        //Setting a shortcut
+        open_File.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_DOWN_MASK));
+
+        //setting file dialog opener
+        open_File.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Opening file clicked");
+                JFileChooser file = new JFileChooser();
+                int result = file.showOpenDialog(frame);
+
+                if(result == JFileChooser.APPROVE_OPTION){
+//                    System.out.println(result);
+//                    System.out.println(file.getSelectedFile());
+                    File selectedFile = file.getSelectedFile();
+//                    System.out.println(selectedFile.getAbsolutePath());
+
+                    try{
+
+                        Scanner sc = new Scanner(selectedFile);
+
+                        while(sc.hasNext()){
+
+//                            System.out.println(sc.nextLine());
+//                            textArea11.setText.append((sc.nextLine())).append(" ");
+                            content.append(sc.nextLine()).append("\n");
+                        }
+                        textArea11.setText(content.toString());
+                        sc.close();
+                    }
+                    catch(Exception err){
+
+                    }
+                }
+            }
+        });
+
+
+        menuBar.add(home);
+        menuBar.add(file);
+        menuBar.add(help);
+        menuBar.add(review);
+
+        menuBar.setBackground(new Color(220,220,220));
+
+        frame.setJMenuBar(menuBar);
+
+        // -------------------Dialog Boxes and Alert Boxes--------------------//
+
+
 
 
 
@@ -265,8 +349,21 @@ public class _31_assignmentCreatingSignupPage {
         JButton button = new JButton("Submit");
         button.setFont(new Font("Helvetic",Font.BOLD,30));
         button.setBackground(Color.cyan);
-        button.setBounds(210, 500, 150, 60);
+        button.setBounds(210, 700, 150, 60);
         button.setBorder(new LineBorder(Color.gray, 1, true));
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("hello");
+//                JOptionPane.showMessageDialog(frame,"Error","Hello",JOptionPane.WARNING_MESSAGE);
+                int option = JOptionPane.showConfirmDialog(frame,"Do you want to Confirm?","Exit",JOptionPane.OK_CANCEL_OPTION);
+            // String userValue = JOptionPane.showInputDialog("Enter"); sout(userValue);
+                if(option == JOptionPane.OK_OPTION){
+                    System.exit(0);
+                }
+            }
+        });
 
 
         //------------------------ADDER------------------------//
