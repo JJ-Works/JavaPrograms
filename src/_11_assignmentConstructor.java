@@ -12,7 +12,7 @@ class Person{
 }
 
 
-public class _11_assignmentConsturctor {
+public class _11_assignmentConstructor {
 
     public static void main(String[] args) {
         System.out.println("Program to se the use of an constructor");
