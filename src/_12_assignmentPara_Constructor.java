@@ -21,21 +21,21 @@ class Laptop{
     // To display the set values we have to create a function or method to display the attributes
      void displayInfo(){
 
-        System.out.println("The brand of the Laptop is " + brand + ".");
-        System.out.println("The ram of the Laptop is " + ram + "Gb with 4800 Mega transfers.");
-        System.out.println("The price of the Laptop is Rs."+ price + " only.");
+        System.out.println("The brand is " + brand + ".");
+        System.out.println("The ram is " + ram + ".");
+        System.out.println("The price is Rs."+ price + " only.");
 
 
     }
 
 }
 
-public class _12_assignmentPara_Constructor {
+public class  _12_assignmentPara_Constructor {
     public static void main(String[] args) {
 
         System.out.println("Program to parameterized constructor.");
 
-        Laptop lenovo = new Laptop("Asus", 100000, 16);
+        Laptop lenovo = new Laptop("Lenovo", 100000, 16);
 
 
         lenovo.displayInfo();

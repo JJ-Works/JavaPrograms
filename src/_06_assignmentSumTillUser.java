@@ -6,7 +6,7 @@ public class _06_assignmentSumTillUser {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the number to add upto: ");
+        System.out.println("Enter the number to add up to: ");
         int sum = 0;
         int input = sc.nextInt();
 

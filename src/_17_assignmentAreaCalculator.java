@@ -67,6 +67,7 @@ public class _17_assignmentAreaCalculator {
         double circleArea = circle.calculateArea();
         double rectangleArea = rectangle.calculateArea();
 
-            
+        System.out.println(circleArea);
+        System.out.println(rectangleArea);
     }
 }

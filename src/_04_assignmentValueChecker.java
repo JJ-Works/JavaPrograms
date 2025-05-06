@@ -9,16 +9,19 @@ public class _04_assignmentValueChecker {
 
         System.out.print("Enter a number to check if the provided num is positive, negative, or zero: ");
 
+        int i = 0;
+        while(i < 3){
         int input = sc.nextInt();
-
-        if(input < 0){
-            System.out.println("This is a negative number.");
-        }
-        else if(input>0){
-            System.out.println("This is a positive number.");
-        }
-        else{
-            System.out.println("This is Zero.");
+            if(input < 0){
+                System.out.println("negative.");
+            }
+            else if(input>0){
+                System.out.println("positive");
+            }
+            else{
+                System.out.println("Zero");
+            }
+            i++;
         }
     }
 }

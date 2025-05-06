@@ -19,7 +19,6 @@ class Student{
         System.out.println(name);
 
         System.out.println(rollNumber);
-        System.out.println("\n");
     }
 }
 

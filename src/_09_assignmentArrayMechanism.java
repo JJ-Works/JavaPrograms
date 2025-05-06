@@ -11,13 +11,13 @@ public class _09_assignmentArrayMechanism {
         int[] array = new int[5];
 
         for (i = 0; i< 5; i ++){
-            System.out.printf("Enter the Value in array [%d]:  ",i+1);
+            System.out.printf("Index [%d]:  ",i+1);
             input = sc.nextInt();
             array[i] = input;
 
         }
         for (i = 0; i<5;i++){
-            System.out.printf("Array [%d] contains %d\n\n",(i+1),array[i]);
+            System.out.printf("Array [%d] = %d\n",(i+1),array[i]);
         }
     }
 }
